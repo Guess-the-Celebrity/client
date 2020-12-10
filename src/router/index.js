@@ -14,14 +14,14 @@ const routes = [
     component: Home
   },
   {
-    path: '/room',
-    name: 'room',
-    component: room
-  },
-  {
     path: '/create',
     name: 'CreateRooms',
     component: CreateRooms,
+  },
+  {
+    path: '/room',
+    name: 'room',
+    component: room
   },
   {
     path: '/game',

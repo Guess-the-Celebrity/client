@@ -1,53 +1,64 @@
 <template>
-<div class="jumbotron jumbotron-fluid">
-  <div class="d-flex justify-content-center">
-    <div class="card bg-secondary rounded-3 shadow mt-5">
-        <div class=" container pt-5 mt-4">
-        <input class="form-control  form-control-lg mb-2 mt-4" v-model="name" type="text" placeholder="e.g Your Name" aria-label=".form-control-lg example">
-        <button @click="login" class="mb-3 btn btn-outline-warning btn-lg"><b>Enter</b></button>
+  <div class="jumbotron jumbotron-fluid mb-0">
+    <div class="d-flex justify-content-center">
+      <div class="card bg-secondary rounded-3 shadow mt-5">
+        <div class="container pt-5 mt-4">
+          <input
+            class="form-control form-control-lg mb-2 mt-4"
+            v-model="name"
+            type="text"
+            placeholder="e.g Your Name"
+            aria-label=".form-control-lg example"
+          />
+          <button @click="login" class="mb-3 btn btn-outline-warning btn-lg">
+            <b>Enter</b>
+          </button>
         </div>
+      </div>
     </div>
+    <img class="loginImg" src="../img/guess-star.png" alt="" />
   </div>
-  <img class="loginImg" src="../img/guess-star.png" alt="">
-</div>
 </template>
 
 <script>
 // @ is an alias to /src
 
 export default {
-  name: 'Home',
-  components: {
-  },
-  data () {
+  name: "Home",
+  components: {},
+  data() {
     return {
-      name: ''
-    }
+      name: "",
+    };
   },
   methods: {
-    login () {
-      console.log('login masuk ke Create room')
-      this.$router.push('/create')
-    }
-  }
-}
+    login() {
+      console.log("login masuk ke Create room");
+      this.$router.push("/create");
+    },
+  },
+};
 </script>
 
 <style>
-  .loginImg {
-    position: relative;
-    z-index: 10;
-    top: -315px;
-  }
-  .d-flex {
-    padding-top: 170px;
-  }
+.loginImg {
+  position: relative;
+  z-index: 10;
+  top: -315px;
+}
+.d-flex {
+  padding-top: 170px;
+}
 
-  .card {
-    width: 350px;
-  }
+.card {
+  width: 350px;
+}
 
-  .jumbotron {
-    background-image: url('../img/background.png');
-  }
+.jumbotron {
+  background-image: url("../img/background.png");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 </style>

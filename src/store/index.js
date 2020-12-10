@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     gameStars: [],
     randomData: {},
-    limit: 3
+    limit: 3,
+    roomlist:[]
   },
   mutations: {
     SOCKET_init (state, payload) {

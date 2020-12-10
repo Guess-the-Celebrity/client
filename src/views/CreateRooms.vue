@@ -33,7 +33,11 @@ export default {
     RoomCard,
     CreateRoomForm
   },
-  data () {},
+  data () {
+    return{
+      
+    }
+  },
   methods: {}
 }
 </script>
