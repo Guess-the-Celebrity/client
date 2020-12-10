@@ -26,7 +26,6 @@ export default {
   },
   methods: {
     login () {
-      console.log('login masuk')
       this.$router.push('/room')
     }
   }
