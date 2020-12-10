@@ -1,7 +1,7 @@
 <template>
-  <div class="jumbotron jumbotron-fluid mb-0">
+  <div class="jumbotron jumbotron-fluid mb-0 p-0">
     <div class="d-flex justify-content-center">
-      <div class="card bg-secondary rounded-3 shadow mt-5">
+      <div class="card bg-secondary rounded-3 shadow ">
         <div class="container pt-5 mt-4">
           <input
             class="form-control form-control-lg mb-2 mt-4"
@@ -24,20 +24,20 @@
 // @ is an alias to /src
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {},
-  data() {
+  data () {
     return {
-      name: "",
-    };
+      name: ''
+    }
   },
   methods: {
-    login() {
-      console.log("login masuk ke Create room");
-      this.$router.push("/create");
-    },
-  },
-};
+    login () {
+      console.log('login masuk ke Create room')
+      this.$router.push('/create')
+    }
+  }
+}
 </script>
 
 <style>
@@ -47,7 +47,7 @@ export default {
   top: -315px;
 }
 .d-flex {
-  padding-top: 170px;
+  padding-top: 200px;
 }
 
 .card {
@@ -56,7 +56,7 @@ export default {
 
 .jumbotron {
   background-image: url("../img/background.png");
-  height: 100vh;
+  /* max-height: vh; */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

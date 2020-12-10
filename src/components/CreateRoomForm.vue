@@ -23,20 +23,22 @@
 
 <script>
 export default {
-  name: "CreateRoomForm",
-  data() {
+  name: 'CreateRoomForm',
+  data () {
     return {
-      RoomName: "",
-    };
+      RoomName: ''
+    }
   },
 
   methods: {
-    createRoom() {
-      this.$store.commit("createRoom", this.RoomName);
-      this.RoomName = "";
-    },
-  },
-};
+    createRoom () {
+      this.$store.commit('createRoom', this.RoomName)
+      this.$store.commit('randRoomImages')
+      this.RoomName = ''
+    }
+  }
+
+}
 </script>
 
 <style>
