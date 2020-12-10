@@ -4,7 +4,7 @@
     <div class="card bg-secondary rounded-3 shadow mt-5">
         <div class=" container pt-5 mt-4">
         <input class="form-control  form-control-lg mb-2 mt-4" v-model="name" type="text" placeholder="e.g Your Name" aria-label=".form-control-lg example">
-        <button class="mb-3 btn btn-outline-warning btn-lg"><b>Enter</b></button>
+        <button @click="login" class="mb-3 btn btn-outline-warning btn-lg"><b>Enter</b></button>
         </div>
     </div>
   </div>
@@ -26,7 +26,8 @@ export default {
   },
   methods: {
     login () {
-      console.log('login masuk')
+      console.log('login masuk ke Create room')
+      this.$router.push('/create')
     }
   }
 }
