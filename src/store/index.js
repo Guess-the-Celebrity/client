@@ -7,7 +7,9 @@ export default new Vuex.Store({
   state: {
     gameStars: [],
     randomData: {},
-    limit: 3
+    limit: 3,
+    roomlist: []
+
   },
   mutations: {
     SOCKET_init (state, payload) {
@@ -20,7 +22,15 @@ export default new Vuex.Store({
     },
     SOCKET_gameDone (state, payload) {
       console.log('player with username ' + payload.username + ' is the winner')
+    },
+    createRoom (state, payload) {
+      if (state.roomlist.length < 6) {
+        state.roomlist.push(payload)
+      } else {
+        swal('Sorry!', 'Max room created was reached! , (max. 6 rooms)', 'info')
+      }
     }
+
   },
   actions: {
   },

@@ -2,20 +2,25 @@
   <div id="create-rooms" class="m-0">
     <br>
     <h1 class="mt-30">CREATE or JOIN ROOM</h1>
-    <br /><br /><br />
+    <br /><br />
     <div class="container d-flex mt-10 justify-content-around p-0">
-      <div
-        class="container-fluid d-flex flex-column p-0 mr-3 col-3 justify-content-center"
+      <div id="addroom-left"
+        class="container-fluid d-flex flex-column flex-start p-0 mr-3 col-3 justify-content-center ;"
       >
         <h1>Create Room</h1>
         <CreateRoomForm></CreateRoomForm>
+
       </div>
       <div
-        class="container-fluid d-flex flex-row-reverse flex-wrap p-0 m-0 col-10 justify-content-between"
+        class="container-fluid d-flex flex-row-reverse flex-wrap p-0 m-0 col-10 "
       >
         <!-- // Looping RoomCard di Sini -->
         <!-- // Props nama Room yang diinput ke roomCard -->
-        <RoomCard></RoomCard>
+        <RoomCard
+         v-for="(room, i) in roomlist" :key="i " :roomName="room" :id="i"
+         >
+
+        </RoomCard>
 
       </div>
     </div>
@@ -33,8 +38,20 @@ export default {
     RoomCard,
     CreateRoomForm
   },
-  data () {},
-  methods: {}
+  data () {
+    return {
+
+    }
+  },
+  methods: {
+
+  },
+  computed: {
+    roomlist () {
+      return this.$store.state.roomlist
+    }
+
+  }
 }
 </script>
 
@@ -46,4 +63,9 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+#addroom-left{
+  align-items: flrx-start;
+}
+
 </style>
