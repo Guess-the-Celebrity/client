@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import room from '../views/gameRoom.vue'
+import CreateRooms from '../views/CreateRooms.vue'
 import Game from '../views/Game.vue'
 
 Vue.use(VueRouter)
@@ -18,10 +19,16 @@ const routes = [
     component: room
   },
   {
+    path: '/create',
+    name: 'CreateRooms',
+    component: CreateRooms,
+  },
+  {
     path: '/game',
     name: 'Game',
     component: Game
   }
+
 ]
 
 const router = new VueRouter({

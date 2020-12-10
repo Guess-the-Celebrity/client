@@ -26,7 +26,8 @@ export default {
   },
   methods: {
     login () {
-      this.$router.push('/room')
+      console.log('login masuk ke Create room')
+      this.$router.push('/create')
     }
   }
 }
