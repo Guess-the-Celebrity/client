@@ -10,7 +10,7 @@
                       </div>
                   </div>
                   <ul class="list-unstyled">
-                    <PlayerCard></PlayerCard>
+                    <PlayerCard v-for="(player,i) in players" :key=i :player="player"></PlayerCard>
                   </ul>
               </div>
           </div>
@@ -47,6 +47,11 @@ export default {
     submitAnswer () {
       console.log('submitted')
       this.answer = ''
+    }
+  },
+  computed: {
+    players () {
+      return this.$store.state.players
     }
   }
 

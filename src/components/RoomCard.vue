@@ -4,16 +4,19 @@
     img-top
     tag="article"
     style="max-width: 300px; height: 200px; margin-right: 5px"
-    class="mb-2 text-left"
+    class="mb-2 p-0 text-left "
     bg-variant="dark"
     text-variant="white"
+
     rounded
   >
-    <div>
-      <h5 class=" card-title col-12">{{roomName}}</h5>
+    <div class= "d-flex flex-row p-0 justify-content-between">
+      <h6 class=" card-title col-6 p-0 ">{{roomName}}</h6>
+      <p class=" card-title col-6 p-0 text-muted ">by. {{roomName}}</p>
     </div>
-    <div>
-      <b-button @click="enterRoom" class="col-12" href="#" variant="secondary">JOIN</b-button>
+    <div class= "d-flex flex-row p-0 justify-content-between">
+      <b-button @click="enterRoom" class="col-4" href="#" variant="secondary">JOIN</b-button>
+      <!-- <b-button @click="enterRoom" class="col-6" href="#" variant="secondary">JOIN</b-button> -->
     </div>
   </b-card>
 </template>

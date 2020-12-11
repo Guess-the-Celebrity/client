@@ -33,8 +33,12 @@ export default {
   methods: {
     createRoom () {
       this.$store.commit('createRoom', this.RoomName)
-      this.$store.commit('randRoomImages')
       this.RoomName = ''
+    }
+  },
+  computed: {
+    players () {
+      return this.$store.state.players
     }
   }
 

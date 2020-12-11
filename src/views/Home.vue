@@ -34,8 +34,11 @@ export default {
   methods: {
     login () {
       console.log('login masuk ke Create room')
+      this.$store.commit('login', this.name)
+      this.name = ''
       this.$router.push('/create')
     }
+
   }
 }
 </script>
