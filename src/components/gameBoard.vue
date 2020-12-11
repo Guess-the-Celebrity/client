@@ -41,18 +41,13 @@ import PlayerCard from '../components/playerCard'
 export default {
   data () {
     return {
-      answer: '',
-      count: ''
+      answer: ''
     }
   },
   components: {
     PlayerCard
   },
   methods: {
-    submitAnswer () {
-      console.log('submitted')
-      this.answer = ''
-    },
     inputData (data) {
       if (this.answer.toLowerCase() === this.randomData.name.toLowerCase()) {
         for (let i = 0; i < this.playerName.length; i++) {
@@ -60,7 +55,6 @@ export default {
             this.playerName[i].count++
           }
         }
-        console.log(this.playerName, '<======')
         this.$socket.emit('answer', this.playerName)
         this.answer = ''
       }
@@ -78,14 +72,8 @@ export default {
     playerName () {
       return this.$store.state.playerName
     },
-    userName () {
-      return this.$store.state.username
-    },
     randomData () {
       return this.$store.state.randomData
-    },
-    hasil () {
-      return this.$store.state.hasilScore
     },
     limit () {
       return this.$store.state.limit
