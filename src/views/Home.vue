@@ -64,6 +64,6 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 680px;
+  min-height: 100vh;
 }
 </style>

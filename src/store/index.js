@@ -20,14 +20,14 @@ export default new Vuex.Store({
       state.randomData = payload
     },
     SOCKET_serverPass (state, payload) {
-      console.log(payload)
+      // console.log(payload)
       state.playerName = payload
     },
     SOCKET_gameDone (state, payload) {
       console.log('player with username ' + payload.username + ' is the winner')
       swal({
         title: 'Congratulations, ' + payload.username + ' !!',
-        text: 'You won !!',
+        text: payload.username + ' has won !!',
         icon: 'success'
       })
       router.push('/')

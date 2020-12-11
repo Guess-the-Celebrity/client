@@ -61,7 +61,6 @@ export default {
       for (let i = 0; i < this.playerName.length; i++) {
         if (this.playerName[i].username === localStorage.username) {
           if (this.playerName[i].count === this.limit) {
-            console.log('enddd')
             this.$socket.emit('end', { username: localStorage.username })
           }
         }
