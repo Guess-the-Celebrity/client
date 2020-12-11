@@ -5,7 +5,7 @@
         <div class="container pt-5 mt-4">
           <input
             class="form-control form-control-lg mb-2 mt-4"
-            v-model="name"
+            v-model="username"
             type="text"
             placeholder="e.g Your Name"
             aria-label=".form-control-lg example"
@@ -28,15 +28,16 @@ export default {
   components: {},
   data () {
     return {
-      name: ''
+      username: ''
     }
   },
   methods: {
     login () {
-      console.log('login masuk ke Create room')
-      this.$store.commit('login', this.name)
-      this.name = ''
-      this.$router.push('/create')
+      const username = this.username
+      localStorage.setItem('username', this.username)
+      this.$socket.emit('inputUsername', username)
+      this.$router.push('/room')
+      this.username = ''
     }
 
   }
