@@ -18,7 +18,6 @@ export default new Vuex.Store({
   mutations: {
     SOCKET_init (state, payload) {
       state.randomData = payload
-      console.log(payload, 'ini psyloaddd')
     },
     SOCKET_serverPass (state, payload) {
       console.log(payload)
@@ -35,7 +34,6 @@ export default new Vuex.Store({
     },
     SOCKET_addPlayerName (state, payload) {
       state.playerName = payload
-      console.log(state.playerName, '<---')
     },
     login (state, payload) {
       state.players.push(payload)

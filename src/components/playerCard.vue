@@ -15,9 +15,6 @@ export default {
   computed: {
     playerName () {
       return this.$store.state.username
-    },
-    hasilScore () {
-      return this.$store.state.hasilScore
     }
   },
   props: ['player']

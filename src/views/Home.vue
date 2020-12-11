@@ -1,5 +1,5 @@
 <template>
-  <div class="jumbotron jumbotron-fluid mb-0 p-0">
+  <div class="jumbotron jumbotron-fluid mb-0 ">
     <div class="d-flex justify-content-center">
       <div class="card bg-secondary rounded-3 shadow ">
         <div class="container pt-5 mt-4">
@@ -64,5 +64,6 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 680px;
 }
 </style>
