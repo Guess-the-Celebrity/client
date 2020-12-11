@@ -8,7 +8,8 @@ export default new Vuex.Store({
     gameStars: [],
     randomData: {},
     limit: 3,
-    roomlist: []
+    roomlist: [],
+    players: []
 
   },
   mutations: {
@@ -22,6 +23,9 @@ export default new Vuex.Store({
     },
     SOCKET_gameDone (state, payload) {
       console.log('player with username ' + payload.username + ' is the winner')
+    },
+    login (state, payload) {
+      state.players.push(payload)
     },
     createRoom (state, payload) {
       if (state.roomlist.length < 6) {
