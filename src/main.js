@@ -6,6 +6,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import VueSocketIO from 'vue-socket.io'
+
 Vue.use(new VueSocketIO({
   debug: true,
   connection: 'https://guess-star.herokuapp.com',
