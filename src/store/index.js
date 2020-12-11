@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 // import axios from '../config/axios'
-// import router from '../router'
+import router from '../router'
+import swal from 'sweetalert'
 
 Vue.use(Vuex)
 
@@ -25,6 +26,12 @@ export default new Vuex.Store({
     },
     SOCKET_gameDone (state, payload) {
       console.log('player with username ' + payload.username + ' is the winner')
+      swal({
+        title: 'Congratulations, ' + payload.username + ' !!',
+        text: 'You won !!',
+        icon: 'success'
+      })
+      router.push('/')
     },
     SOCKET_addPlayerName (state, payload) {
       state.playerName = payload
@@ -36,7 +43,6 @@ export default new Vuex.Store({
     createRoom (state, payload) {
       if (state.roomlist.length < 6) {
         state.roomlist.push(payload)
-      } else {
       }
     }
 
