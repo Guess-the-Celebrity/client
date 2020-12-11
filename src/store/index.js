@@ -9,7 +9,10 @@ export default new Vuex.Store({
   state: {
     playerName: [],
     randomData: {},
-    limit: 1
+    limit: 3,
+    roomlist: [],
+    players: []
+
   },
   mutations: {
     SOCKET_init (state, payload) {
@@ -26,7 +29,17 @@ export default new Vuex.Store({
     SOCKET_addPlayerName (state, payload) {
       state.playerName = payload
       console.log(state.playerName, '<---')
+    },
+    login (state, payload) {
+      state.players.push(payload)
+    },
+    createRoom (state, payload) {
+      if (state.roomlist.length < 6) {
+        state.roomlist.push(payload)
+      } else {
+      }
     }
+
   },
   actions: {
   },

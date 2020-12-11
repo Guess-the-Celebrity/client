@@ -20,15 +20,7 @@ export default {
       return this.$store.state.hasilScore
     }
   },
-  props: ['player', 'hasil'],
-  methods: {
-    ambilHasil (data) {
-      this.hasilScore.map(el => {
-        return el.username === data
-      })
-    }
-  }
-
+  props: ['player']
 }
 </script>
 
