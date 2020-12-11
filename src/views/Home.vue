@@ -3,7 +3,7 @@
   <div class="d-flex justify-content-center">
     <div class="card bg-secondary rounded-3 shadow mt-5">
         <div class=" container pt-5 mt-4">
-        <input class="form-control  form-control-lg mb-2 mt-4" v-model="name" type="text" placeholder="e.g Your Name" aria-label=".form-control-lg example">
+        <input class="form-control  form-control-lg mb-2 mt-4" v-model="username" type="text" placeholder="e.g Your Name" aria-label=".form-control-lg example">
         <button @click="login" class="mb-3 btn btn-outline-warning btn-lg"><b>Enter</b></button>
         </div>
     </div>
@@ -21,12 +21,16 @@ export default {
   },
   data () {
     return {
-      name: ''
+      username: ''
     }
   },
   methods: {
     login () {
+      const username = this.username
+      localStorage.setItem('username', this.username)
+      this.$socket.emit('inputUsername', username)
       this.$router.push('/room')
+      this.username = ''
     }
   }
 }

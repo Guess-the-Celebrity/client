@@ -10,7 +10,11 @@
                       </div>
                   </div>
                   <ul class="list-unstyled">
-                    <PlayerCard></PlayerCard>
+                    <PlayerCard
+                     v-for="(player, i) in playerName"
+                     :key="i"
+                     :player='player'
+                    ></PlayerCard>
                   </ul>
               </div>
           </div>
@@ -18,12 +22,12 @@
               <div class="text-center">
                   <h1>Who is This ?</h1>
               </div>
-              <img src="../img/sule.jpg" alt="" class="img-quiz">
+              <img :src="randomData.image" alt="" class="img-quiz">
               <div class="container mt-3">
                   <div class="form-group ">
                     <div class="d-flex justify-content-center p-0">
                     <input v-model="answer" placeholder="Your Answer" type="text" class=" col-4 form-control w-50 mr-2" id="answer">
-                    <button @click="submitAnswer" class=" col-1 btn btn-sm btn-warning">enter</button>
+                    <button @click="inputData(randomData.id)" class=" col-1 btn btn-sm btn-warning">enter</button>
                     </div>
                 </div>
               </div>
@@ -37,7 +41,8 @@ import PlayerCard from '../components/playerCard'
 export default {
   data () {
     return {
-      answer: ''
+      answer: '',
+      count: ''
     }
   },
   components: {
@@ -47,9 +52,45 @@ export default {
     submitAnswer () {
       console.log('submitted')
       this.answer = ''
+    },
+    inputData (data) {
+      if (this.answer.toLowerCase() === this.randomData.name.toLowerCase()) {
+        for (let i = 0; i < this.playerName.length; i++) {
+          if (this.playerName[i].username === localStorage.username) {
+            this.playerName[i].count++
+          }
+        }
+        console.log(this.playerName, '<======')
+        this.$socket.emit('answer', this.playerName)
+        this.answer = ''
+      }
+      for (let i = 0; i < this.playerName.length; i++) {
+        if (this.playerName[i].username === localStorage.username) {
+          if (this.playerName[i].count === this.limit) {
+            console.log('enddd')
+            this.$socket.emit('end', { username: localStorage.username })
+          }
+        }
+      }
+    }
+  },
+  computed: {
+    playerName () {
+      return this.$store.state.playerName
+    },
+    userName () {
+      return this.$store.state.username
+    },
+    randomData () {
+      return this.$store.state.randomData
+    },
+    hasil () {
+      return this.$store.state.hasilScore
+    },
+    limit () {
+      return this.$store.state.limit
     }
   }
-
 }
 </script>
 
